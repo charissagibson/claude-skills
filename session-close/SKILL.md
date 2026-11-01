@@ -1,6 +1,6 @@
 ---
 name: session-close
-description: "Close a working session with a handover that actually lands: living documents updated as verified full replacements, a change record, a backlog or register update, the user-only actions written as exact text, and a next-session prompt. Use whenever a session created, changed or retired something (a file, document, process, system, decision or plan); whenever the user says handover, doc pass, documentation pass, wrap up, update the docs, update the backlog, record this, or asks what needs documenting; whenever a session is closing and decisions were taken in chat that exist nowhere else; and when asked to check a regenerated document against its original. Trigger even if the user never says the word: a session that changed something and is about to end needs one."
+description: "Close a working session with a handover that actually lands: living documents updated as verified full replacements, a change record, a backlog or register update, the user-only actions written as exact text, and a next-session prompt. Use whenever a session created, changed or retired something (a file, document, process, system, decision or plan); whenever the user says handover, doc pass, documentation pass, wrap up, update the docs, update the backlog, record this, or asks what needs documenting; whenever a session is closing and decisions were taken in chat that exist nowhere else; and when asked to check a regenerated document against its original.  Also use when the user says 'run next session prompt' at the start of a session: it finds and follows the current prompt. Trigger even if the user never says the word: a session that changed something and is about to end needs one."
 ---
 
 # Session close
@@ -26,7 +26,7 @@ Never imply you've updated a document you can't write.  If it's ambiguous, ask o
 
 **Don't settle for read-only until you've tried for write access.**  List the folders you can actually reach.  If the one holding the documents isn't there, ask for access.  A cached or synced copy is not the source of record; if both exist, the real folder wins.
 
-**Project instructions and personal settings are read-only to you**, so every fix to them is a handover (*Step 7*).
+**Project instructions are writable when they're a file you can reach** (a `CLAUDE.md` in Claude Code): baseline, patch and show the diff like any other document.  They're read-only only where they live outside your reach (uploaded project knowledge, a hosted settings page); then every fix is a handover (*Step 7*).  Personal settings stay the user's to change.
 
 **If several people run handovers on the same project**, agree one writer for the backlog or register, so concurrent sessions don't overwrite each other.  Everyone else raises items for that writer (*Step 5*).  For a solo project, skip this.
 
@@ -151,7 +151,7 @@ Working files, exports, old drafts and superseded copies pile up, and they aren'
 
 ## Step 7: instruction fixes
 
-Where the session showed repeated friction (the user frustrated, or you looping or re-correcting), the fix belongs in the project instructions or a skill, not in this conversation.  You can't edit instructions, so this is always a handover of the exact replacement text.
+Where the session showed repeated friction (the user frustrated, or you looping or re-correcting), the fix belongs in the project instructions or a skill, not in this conversation.  Where you can't edit the instructions, this is a handover of the exact replacement text.
 
 Four gates, all of them, before proposing one:
 
@@ -223,8 +223,12 @@ Then include:
 - One folder for prompts, named in the project instructions.
 - `<NNN>_<YYYY-MM-DD>_<Project>_Next session prompt.md`, numbered in sequence and dated when written.  With several writers, put the person's name first.
 - When a new prompt is saved, move the previous one into `superseded/`, unrenamed.  Never delete or overwrite a prompt.  The folder then holds exactly one current prompt, and **a gap in the numbering shows a session ran without a handover.**
+- **Supersede every time, and prove it.**  Saving a prompt and moving the old one are one step, never two.  After both, list the folder: exactly one prompt outside `superseded/`, and it's the one just saved.  If the listing shows two, the step isn't done.
+- Record the folder and the current prompt's filename in the project instructions, so a new session can find it.
 
-Recommend pasting it into a fresh conversation.  A handover happens when the current one has become a poor place to keep working.
+Recommend starting a fresh conversation.  A handover happens when the current one has become a poor place to keep working.
+
+**"Run next session prompt."**  When the user says this (or "run the next session prompt", "start from the prompt"), find the prompts folder named in the project instructions, list it, and open the one prompt outside `superseded/`.  Read it in full and follow it, starting with what it says to read.  If there's no current prompt, or more than one, say so and ask; don't guess from filenames.  Before starting the work, confirm the prompt is still current: check whether anything it says is outstanding has since been done.
 
 ## Conventions worth keeping
 
