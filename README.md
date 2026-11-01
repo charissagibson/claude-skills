@@ -4,7 +4,7 @@ Skills I've written for Claude: the working methods I use when I direct AI to bu
 
 I'm an accountant, not a software engineer.  These came out of real working sessions.  I noticed where things kept going wrong, decided what the rule should be, and wrote it up with Claude.  Then I checked every line against what had actually happened.
 
-## handover
+## session-close
 
 The main one.  Writing a handover at the end of an AI session is easy.  Landing it is the hard part.
 

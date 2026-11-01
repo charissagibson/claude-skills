@@ -1,9 +1,9 @@
 ---
-name: handover
+name: session-close
 description: "Close a working session with a handover that actually lands: living documents updated as verified full replacements, a change record, a backlog or register update, the user-only actions written as exact text, and a next-session prompt. Use whenever a session created, changed or retired something (a file, document, process, system, decision or plan); whenever the user says handover, doc pass, documentation pass, wrap up, update the docs, update the backlog, record this, or asks what needs documenting; whenever a session is closing and decisions were taken in chat that exist nowhere else; and when asked to check a regenerated document against its original. Trigger even if the user never says the word: a session that changed something and is about to end needs one."
 ---
 
-# Handover
+# Session close
 
 ## The failures this exists to prevent
 
