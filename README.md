@@ -18,6 +18,8 @@ I kept seeing the same five failures:
 
 Most of the answer is what any accountant knows from month-end close.  A change record with the before and after.  Evidence that compares against something, not confidence in the new version.  Open items with an owner and a review date.  Closure that says whether it was approved, proven or no longer relevant.  Segregation of duties called out when one person built and approved something that feeds a reported number.  The rest is about not trusting a clean result: a perfect check is a reason to check the check.
 
+It ends by writing the prompt for the next session, and keeps exactly one current.  I start the next session with "run next session prompt", and Claude finds it, reads it in full and checks nothing in it has gone stale.  Where Claude can write the project instructions itself, it does, and shows me the before and after, instead of handing me a list of edits to make.
+
 ## timezone
 
 A small one.  Calendar connectors often return times in UTC, and Claude will happily show them that way.  This makes Claude detect the local zone each session, convert UTC times, and label the zone it used, so a wrong guess is obvious and easy to correct.  It shows how little a skill needs to be to remove an annoyance that keeps coming back.
