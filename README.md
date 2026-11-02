@@ -27,3 +27,7 @@ A small one.  Calendar connectors often return times in UTC, and Claude will hap
 ## Using them
 
 Copy a skill's folder into `~/.claude/skills/`, or into a project's `.claude/skills/`.  Claude Code picks it up from the description at the top of `SKILL.md`.
+
+## Licence
+
+[CC BY 4.0](LICENSE).  Use them, change them and share them, including at work.  Credit me by name, link back here, and say if you changed anything.
