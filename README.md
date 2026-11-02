@@ -6,9 +6,18 @@ I'm an accountant, not a software engineer.  These came out of real working sess
 
 ## session-close
 
-The main one.  Writing a handover at the end of an AI session is easy.  Landing it is the hard part.
+The main one.  It makes every AI working session end with the work landed, not just summarised.
 
-I kept seeing the same five failures:
+What you have at the end of every session:
+
+- every document it touched updated in place, with the original filed as a baseline and the diff shown
+- a change record: before, after, why, who approved it and the evidence
+- a decision register, where every decision, judgement call, abandoned idea and outside approval gets its own ID by stakeholder (`JC-CC01` is the first judgement call for one stakeholder), so nothing settled gets argued twice
+- the backlog closed on evidence, with every open item owned and dated
+- the policy, procedure, work instructions and audit document kept current, so the audit pack is complete the day the project closes
+- exactly one prompt for the next session, so it starts by reading, not re-deriving
+
+Writing a handover is easy.  Landing it is the hard part.  I kept seeing the same five failures:
 
 - fixes proposed and never applied, so the next session inherits them as debt
 - items recorded somewhere nobody has to act on them
@@ -19,6 +28,10 @@ I kept seeing the same five failures:
 Most of the answer is what any accountant knows from month-end close.  A change record with the before and after.  Evidence that compares against something, not confidence in the new version.  Open items with an owner and a review date.  Closure that says whether it was approved, proven or no longer relevant.  Segregation of duties called out when one person built and approved something that feeds a reported number.  The rest is about not trusting a clean result: a perfect check is a reason to check the check.
 
 It ends by writing the prompt for the next session, and keeps exactly one current.  I start the next session with "run next session prompt", and Claude finds it, reads it in full and checks nothing in it has gone stale.  Where Claude can write the project instructions itself, it does, and shows me the before and after, instead of handing me a list of edits to make.
+
+It works for a team too.  Colleagues hand work to each other through a shared prompts folder, and every session reads what's addressed to it before anything else.  A colleague's prompt is shown to you as a request, never followed unseen.
+
+I built [living-reconciliation](https://github.com/charissagibson/living-reconciliation) across sessions closed this way.  Each one picked up from the last prompt, and nothing was lost between them.
 
 ## timezone
 

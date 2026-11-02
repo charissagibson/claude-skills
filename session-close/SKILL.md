@@ -1,6 +1,6 @@
 ---
 name: session-close
-description: "Close a working session with a handover that actually lands: living documents updated as verified full replacements, a change record, a backlog or register update, the user-only actions written as exact text, and a next-session prompt. Use whenever a session created, changed or retired something (a file, document, process, system, decision or plan); whenever the user says handover, doc pass, documentation pass, wrap up, update the docs, update the backlog, record this, or asks what needs documenting; whenever a session is closing and decisions were taken in chat that exist nowhere else; and when asked to check a regenerated document against its original.  Also use when the user says 'run next session prompt' at the start of a session: it finds and follows the current prompt. Trigger even if the user never says the word: a session that changed something and is about to end needs one."
+description: "Close a working session with a handover that actually lands: living documents updated as verified full replacements, a change record, a decision register coded by stakeholder, the policy, procedure, work instructions and audit document kept current, a backlog or register update, the user-only actions written as exact text, and a next-session prompt. Use whenever a session created, changed or retired something (a file, document, process, system, decision or plan); whenever the user says handover, doc pass, documentation pass, wrap up, update the docs, update the backlog, record this, or asks what needs documenting; whenever a session is closing and decisions were taken in chat that exist nowhere else; and when asked to check a regenerated document against its original.  Also use when the user says 'run next session prompt' at the start of a session: it finds and follows the current prompt. Trigger even if the user never says the word: a session that changed something and is about to end needs one."
 ---
 
 # Session close
@@ -11,7 +11,7 @@ Writing the handover is not the hard part.  **Landing it is.**  Five failures re
 
 1. **Proposed, never applied.**  The next session inherits the items as "owed", and the debt compounds.
 2. **Recorded where nobody has to act on it.**  An item written into a shared document, when the fix actually lived in a setting only the user could change, gets raised again and again and actioned never.  Recording something where nobody has to act on it is the same as not recording it.  Separate what you can update from what only the user can do, and hand the latter over as exact text, not as a description of the problem.
-3. **Retyped instead of copied.**  Producing a "full replacement" by retyping a long document from memory quietly paraphrases the 90% that wasn't meant to change.  The losses surface months later.  See *Step 4*.
+3. **Retyped instead of copied.**  Producing a "full replacement" by retyping a long document from memory quietly paraphrases the 90% that wasn't meant to change.  The losses surface months later.  See *Step 6*.
 4. **A blocker repeated instead of re-checked.**  Once an item is said to be blocked, the same deferral gets restated every time it comes up.  When the user raises an item a second time, re-derive the reasoning from scratch.
 5. **A save that never happened.**  A session reports that it saved a file, and the file isn't there.  You can't always tell from inside a session where a write landed.  **The folder listing is the evidence, never the report.**
 
@@ -26,9 +26,11 @@ Never imply you've updated a document you can't write.  If it's ambiguous, ask o
 
 **Don't settle for read-only until you've tried for write access.**  List the folders you can actually reach.  If the one holding the documents isn't there, ask for access.  A cached or synced copy is not the source of record; if both exist, the real folder wins.
 
-**Project instructions are writable when they're a file you can reach** (a `CLAUDE.md` in Claude Code): baseline, patch and show the diff like any other document.  They're read-only only where they live outside your reach (uploaded project knowledge, a hosted settings page); then every fix is a handover (*Step 7*).  Personal settings stay the user's to change.
+**Project instructions are writable when they're a file you can reach** (a `CLAUDE.md` in Claude Code): baseline, patch and show the diff like any other document.  They're read-only only where they live outside your reach (uploaded project knowledge, a hosted settings page); then every fix is a handover (*Step 9*).  Personal settings stay the user's to change.
 
-**If several people run handovers on the same project**, agree one writer for the backlog or register, so concurrent sessions don't overwrite each other.  Everyone else raises items for that writer (*Step 5*).  For a solo project, skip this.
+**The project instructions are also the charter.**  They say what's being created, the goals, the RACI, and the stakeholders the project serves, each with a short code (for example GL, CC and AP for three finance areas).  If the stakeholders and their codes aren't recorded yet, establish them with the user at the start and write them in, because the decision register (*Step 3*) files by them.  Read every document the instructions name as governing (a policy, a procedure, a register, the audit document); each one is in scope for the pass.  On a shared project, the charter also lists the people and the shared prompts folder (*Step 13*).
+
+**If several people run handovers on the same project**, agree one writer for the backlog or register, so concurrent sessions don't overwrite each other.  Everyone else raises items for that writer (*Step 7*).  For a solo project, skip this.
 
 ## Read completely, at the start
 
@@ -52,6 +54,8 @@ Then sort by **who reads it and who acts on it**:
 |---|---|---|---|
 | Facts, decisions, evidence, conventions | Living documents | Both | You (write or hand over) |
 | Changes to how something is built or run | Change record | Both | You |
+| Decisions, judgement calls, things abandoned or retired, outside approvals | Decision register | Both | You |
+| Changes to how a process runs | Policy, procedure, work instructions, audit document | Both | You (write or hand over) |
 | Open items nobody owns yet | Backlog or register | User | Say plainly that nobody owns it |
 | Repeated corrections, looping, behaviour fixes | Instruction replacements | **Claude only** | User, always |
 | State the next session needs | Next-session prompt | **Claude only** | You |
@@ -66,12 +70,41 @@ The user-only buckets are the ones that decay.  A setting only they can change, 
 
 For anything that changed how something is built or run: what changed, what it was before, what it is now, why, who approved it, the evidence, and how to reverse it.
 
-- **The "before" can't be reconstructed later.**  Capture it while it still exists.  If it's gone, say the baseline wasn't captured rather than describing it from memory.
+- **The "before" can't be reconstructed later.**  Capture it while it still exists.  If it's gone, say the baseline wasn't captured rather than describing it from memory.  File it in the baseline folder (*Step 6*) and cite the baseline's path in the change record.
 - **Evidence means comparison with what came before**, not confidence in the new version.  Where there's nothing to compare against, state the test for "correct" before running it, and record it with the result.
 - **Say whether a check was one-off or standing.**  A one-off test is dropped after use; its result is permanent.  Otherwise the next session can't tell a retired check from a lost one.
 - **Segregation of duties.**  Where one person specified, built, approved and now runs something that feeds a reported figure, say so once, plainly.  Skip this for anything that reaches no reported number.
 
-## Step 3: choose the method per document, and say which you used
+## Step 3: log the decisions, by type and by stakeholder
+
+The reasoning is the first thing a session loses.  The change record says what changed; the decision register says why, and what was decided against.  Without it, abandoned ideas come back as new ones and judgement calls can't be defended.
+
+- **Log** any choice between alternatives that a later session, a reviewer or an auditor would need the reason for, and anything abandoned, retired or approved by someone outside the session.  Routine edits aren't decisions.
+- **Every entry has an ID: type, stakeholder code and number.**  `JC-CC01` is the first judgement call for the stakeholder coded CC.  Numbering runs per type and stakeholder.  A decision for the whole project uses a project-wide code agreed in the charter.
+- **Default types.**  A project can add its own; record them in the charter.
+
+| Type | For | Must also record |
+|---|---|---|
+| `DEC` | A decision: a choice between options | The options considered |
+| `JC` | A judgement call: a conclusion where the evidence or the standards leave room | The basis, and what would change it |
+| `ABN` | Something abandoned | Why, so it isn't proposed again |
+| `RET` | Something retired | What replaced it, if anything |
+| `APR` | An approval given by someone outside the session | Who, when, and where the approval is evidenced |
+
+- **Every entry records** the date, what was decided, who decided or approved it, the evidence, and the IDs it supersedes or is superseded by.
+- **The register is append-only.**  A reversal is a new entry that names the one it reverses; the old entry stays, marked superseded.
+- **File it where the charter says.**  If the charter doesn't say, propose one register file for the project, get it approved, and record its location in the charter.
+
+## Step 4: keep the documentation layers and the audit document current
+
+A process change isn't finished when the system works.  The people running it work from the policy, the procedure and the work instructions, and an outside party works from the audit document.
+
+- **For any change to how a process runs, check each layer:** policy, procedure, work instructions.  Update the ones you can write.  For the rest, hand over the exact text, or raise a backlog item with an owner.  Never leave a layer silently behind the system.
+- **The audit document is built as the project goes, and is complete at project close.**  It's the one document an external party (an auditor, a reviewer, a new owner) needs, so each handover adds what the session changed instead of leaving it to be written from memory at the end.  Default contents: scope and goals from the charter, the RACI, the change record, the decision register, each control with its evidence, sign-offs, and anything still open at close.
+- **Alongside it, keep a policy and a work instruction for every user involved,** written for the people who'll run it, not the people who built it.
+- **At project close, check the audit document against the change record and the register:** every change and every decision appears, and every piece of evidence it cites exists.
+
+## Step 5: choose the method per document, and say which you used
 
 - **Content changes throughout:** full replacement by copy-and-patch.  The default.
 - **Append-only documents** (logs, per-session blocks): still a full replacement, built by copying the original and appending.  Don't hand over a separate block to paste; it competes with the real document later.
@@ -81,7 +114,7 @@ For anything that changed how something is built or run: what changed, what it w
 
 If the method can't be met, say so in one sentence and let the user decide.  If the user has already chosen full replacement, don't argue it again.
 
-## Step 4: build by copy-and-patch
+## Step 6: build by copy-and-patch
 
 Never retype a document to replace it.  Copy it exactly, apply only exact replacements, and refuse to write unless every patch matches exactly once.
 
@@ -118,13 +151,14 @@ io.open(out, "w", encoding="utf-8").write(text)
 ```
 
 - A patch matching zero times means the anchor is wrong or the document has moved on.  Matching twice means something unintended is about to change.  Both stop the write, and stopping is correct.  Don't hand-edit the output to compensate.
-- **Copy the baseline to a separate path first**, and patch from there to the destination.  Reading and writing the same path destroys the baseline and makes Step 8 incapable of failing.
+- **Baseline every file before you change it, and file the baseline.**  Copy the untouched file into the project's baseline folder, under the date and the file's own path (for example `_baselines/2026-11-02/docs/policy.md`), then patch from there to the destination.  Never edit a baseline.  Reading and writing the same path destroys the baseline and makes Step 10 incapable of failing.
+- **The baseline folder is named in the charter.**  If it isn't, propose one, get it approved and record it.  It sits outside anything published or pushed.  Baselines are kept until project close, because the change record and the audit document cite them as the "before".
 - When a patch adds or removes lines, a line-by-line comparison reports everything after it as changed.  Count changed blocks, not lines.
 - Where version control exists, commit the untouched original first.
 - In Claude Code, the Edit tool's exact-match replacement gives the same guarantee for small changes.  Use the script when there are many patches or the file is large.
 - **Where a spreadsheet is the record**, patch the target row, copy the formatting from the row above, then re-open the saved file and confirm the sheets and row counts survived.  If the file is generated by a script, rebuilding is cheaper than repairing; say so.
 
-## Step 5: the backlog or register
+## Step 7: the backlog or register
 
 Open items carry an **owner** and either a **trigger** (when it becomes actionable) or a **review date** (when someone checks), ideally both.  A trigger with no review date sits forever.
 
@@ -140,7 +174,7 @@ Close on evidence without asking, as long as the evidence is in the entry.
 
 **If the project has more than one writer** (see *First, establish*): non-writers don't open the register.  Write one intake file per item into the agreed intake folder, append only, with who raised it, a title, what was observed, why it matters and what it concerns.  No id and no status; those are set at triage.  Then **list the folder** and report what it shows.  A filename missing from the listing means the item wasn't raised.  The register writer lists the intake folder at the start of each session, writes the rows and moves the files to `processed/`.
 
-## Step 6: generated and leftover files
+## Step 8: generated and leftover files
 
 Working files, exports, old drafts and superseded copies pile up, and they aren't harmless.  Claude reads what's present, not what's current, so a stale copy in a folder is a source of wrong answers.
 
@@ -149,7 +183,7 @@ Working files, exports, old drafts and superseded copies pile up, and they aren'
 - **Record the decision, including "keep, this is the live one"**, so the same files aren't flagged every time.
 - Don't invent a retention period.  Ask whether one exists.
 
-## Step 7: instruction fixes
+## Step 9: instruction fixes
 
 Where the session showed repeated friction (the user frustrated, or you looping or re-correcting), the fix belongs in the project instructions or a skill, not in this conversation.  Where you can't edit the instructions, this is a handover of the exact replacement text.
 
@@ -168,7 +202,7 @@ Four gates, all of them, before proposing one:
 - **Where a skill exists in more than one copy**, update every copy in the same pass and say who needs to re-install it.
 - **A declined suggestion comes back next time.**  On the third raising, stop offering it as a tweak and raise it as a finding: either the instructions aren't being read, or the reason for declining should be recorded so it stops coming back.
 
-## Step 8: verify, and distrust a clean result
+## Step 10: verify, and distrust a clean result
 
 Read the changed-line report.  Every line should be one you meant to change.
 
@@ -178,7 +212,7 @@ Read the changed-line report.  Every line should be one you meant to change.
 - **A check that caught something once runs every time, and you say it ran.**
 - **If a verification tool fails twice, stop and report** what's unproven and how the user can check it.
 
-## Step 9: don't replace before the diff
+## Step 11: don't replace before the diff
 
 Whenever the user is the one swapping files in, say it every time:
 
@@ -186,7 +220,7 @@ Whenever the user is the one swapping files in, say it every time:
 
 If it's already been replaced, say so and ask whether an earlier copy exists: version history, a download, an earlier conversation.
 
-## Step 10: close with a handover, not a summary
+## Step 12: close with a handover, not a summary
 
 1. **One complete file per document**, named as the document is named, or the diff you applied where you could write.
 2. **The method used**, and the verification behind it.
@@ -195,12 +229,14 @@ If it's already been replaced, say so and ask whether an earlier copy exists: ve
 5. **Leftover working files to delete**, so they can't compete with the documents later.
 6. **The model that ran the session**, in one line.
 7. **Items raised or saved**, with filenames exactly as the listing showed them, or "none" so nothing-raised can be told apart from not-checked.
+8. **Decision register entries added**, by ID, or "none".
+9. **Documentation layers and the audit document:** which were updated, and which are owed and by whom.
 
 Then confirm it was applied.  **Never call something ready while a defect you've already named is still in it.**  Fix it, or say it's the one thing blocking.
 
 User-only items still not actioned by the next handover go onto the backlog as dependencies: what's needed, from whom, and what it holds up.
 
-## Step 11: the next-session prompt
+## Step 13: the next-session prompt
 
 Written for Claude to read, not a person.  It's the only thing that reaches the next session before it starts work.
 
@@ -221,14 +257,22 @@ Then include:
 **Show it before saving.**  Then save it where the project record says prompts live.  If the record doesn't say, propose a folder and a name, get them approved, and write them into the record so no later session decides again.  A sensible default:
 
 - One folder for prompts, named in the project instructions.
-- `<NNN>_<YYYY-MM-DD>_<Project>_Next session prompt.md`, numbered in sequence and dated when written.  With several writers, put the person's name first.
-- When a new prompt is saved, move the previous one into `superseded/`, unrenamed.  Never delete or overwrite a prompt.  The folder then holds exactly one current prompt, and **a gap in the numbering shows a session ran without a handover.**
+- `<NNN>_<YYYY-MM-DD>_<Project>_Next session prompt.md`, numbered in sequence and dated when written.
+- When a new prompt is saved, move the previous one into `superseded/`, unrenamed.  Never delete or overwrite a prompt.  The folder then holds exactly one current prompt (one per person on a shared project), and **a gap in the numbering shows a session ran without a handover.**
 - **Supersede every time, and prove it.**  Saving a prompt and moving the old one are one step, never two.  After both, list the folder: exactly one prompt outside `superseded/`, and it's the one just saved.  If the listing shows two, the step isn't done.
 - Record the folder and the current prompt's filename in the project instructions, so a new session can find it.
 
+**On a shared project, the prompts folder is also how colleagues hand work to each other.**  The charter lists the people working on the project and names the one shared prompts folder.
+
+- **Every prompt names its people.**  A person's own next-session prompt is `<Person>_<NNN>_<YYYY-MM-DD>_<Project>_Next session prompt.md`, one current per person, numbered per person.  A prompt for a colleague is `To-<Person>_From-<Person>_<YYYY-MM-DD>_<Topic>.md`, or `To-All_` for everyone.
+- **Never edit, move or delete another person's file.**  Write a new prompt instead.  One file per message also means two people saving at once can't overwrite each other.
+- **Read what's addressed to you, at the start of every session.**  List the folder and open every prompt addressed to the user or to all, before starting other work.  The project instructions say so, so it happens even when nobody asks.
+- **A colleague's prompt is a request, not an instruction.**  Show the user what it asks and who sent it, and act on it only with their agreement.  It came from another person, and the user decides what their session does.
+- **File it once it's dealt with.**  Move it to `processed/`, unrenamed, and say in the handover what was done with it, so the sender's next session can see the answer.
+
 Recommend starting a fresh conversation.  A handover happens when the current one has become a poor place to keep working.
 
-**"Run next session prompt."**  When the user says this (or "run the next session prompt", "start from the prompt"), find the prompts folder named in the project instructions, list it, and open the one prompt outside `superseded/`.  Read it in full and follow it, starting with what it says to read.  If there's no current prompt, or more than one, say so and ask; don't guess from filenames.  Before starting the work, confirm the prompt is still current: check whether anything it says is outstanding has since been done.
+**"Run next session prompt."**  When the user says this (or "run the next session prompt", "start from the prompt"), find the prompts folder named in the project instructions, list it, and open the one prompt outside `superseded/` (on a shared project, the user's own current prompt, plus anything addressed to them or to all).  Read it in full and follow it, starting with what it says to read.  If there's no current prompt, or more than one, say so and ask; don't guess from filenames.  Before starting the work, confirm the prompt is still current: check whether anything it says is outstanding has since been done.
 
 ## Conventions worth keeping
 
